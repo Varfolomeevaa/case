@@ -17,4 +17,20 @@ def get_color_choice():
         if not flag:
             print(color, 'не является верным значением.')
 
+def get_num_hexagons():
+    flag = 0
+    num_hexagons = input('Пожалуйста, введите количество шестиугольников, располагаемых в ряд: ')
+    while flag == 0:
+        try:
+            num_hexagons = int(num_hexagons)
+            if 4 <= num_hexagons <= 20:
+                flag = 1
+                return num_hexagons
+            else:
+                print('Оно должно быть от 4 до 20.')
+                num_hexagons = int(input('Пожалуйста, повторите попытку: '))
+        except ValueError:
+            print('Оно должно быть от 4 до 20.')
+            num_hexagons = input('Пожалуйста, повторите попытку: ')
 
+print(get_num_hexagons())
