@@ -18,6 +18,10 @@ def get_color_choice():
             print(color, 'не является верным значением.')
 
 def get_num_hexagons():
+    """
+    function for selecting number of hexagons in the line
+    :return: number of hexagons in the line
+    """
     flag = 0
     num_hexagons = input('Пожалуйста, введите количество шестиугольников, располагаемых в ряд: ')
     while flag == 0:
