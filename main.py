@@ -17,6 +17,7 @@ def get_color_choice():
         if not flag:
             print(color, 'не является верным значением.')
 
+
 def get_num_hexagons():
     """
     function for selecting number of hexagons in the line
@@ -37,4 +38,28 @@ def get_num_hexagons():
             print('Оно должно быть от 4 до 20.')
             num_hexagons = input('Пожалуйста, повторите попытку: ')
 
-print(get_num_hexagons())
+
+def draw_hexagon(x, y, side_len, color):
+    """
+    function to draw a hexagon
+    :param x: abscissa of the point from which the figure is drawn
+    :param y: ordinate of the point from which the figure is drawn
+    :param side_len: side length
+    :param color: shape fill color
+    :return: None
+    """
+    turtle.pu()
+    turtle.goto(x, y)
+    turtle.speed(1)
+    turtle.color(color)
+    turtle.pensize(1)
+    turtle.begin_fill()
+    turtle.pd()
+    turtle.lt(30)
+    for i in range(6):
+        turtle.fd(side_len)
+        turtle.rt(60)
+    turtle.rt(30)
+    turtle.end_fill()
+    turtle.pu()
+
