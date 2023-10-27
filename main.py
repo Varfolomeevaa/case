@@ -10,3 +10,4 @@ def get_color_choice():
         if not flag:
             print(color, 'не является верным значением.')
 
+
