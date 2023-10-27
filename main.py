@@ -1,5 +1,5 @@
 import turtle
-
+import math
 
 def get_color_choice():
     """
@@ -51,7 +51,7 @@ def draw_hexagon(x, y, side_len, color):
     turtle.pu()
     turtle.goto(x, y)
     turtle.speed(1)
-    turtle.color(color)
+    turtle.color('black', color)
     turtle.pensize(1)
     turtle.begin_fill()
     turtle.pd()
@@ -63,3 +63,15 @@ def draw_hexagon(x, y, side_len, color):
     turtle.end_fill()
     turtle.pu()
 
+
+def main():
+    color_1 = get_color_choice()
+    color_2 = get_color_choice()
+    num_hex = get_num_hexagons()
+    diameter = 500 / num_hex
+    len_hex = (diameter / 2) / (3 ** 0.5 / 2)
+    print(len_hex)
+    for i in range(num_hex):
+        draw_hexagon(40 + i * diameter, 40, len_hex, 'red')
+
+main()
