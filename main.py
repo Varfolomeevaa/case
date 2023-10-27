@@ -74,4 +74,5 @@ def main():
     for i in range(num_hex):
         draw_hexagon(40 + i * diameter, 40, len_hex, 'red')
 
+
 main()
