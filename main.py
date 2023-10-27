@@ -1,5 +1,5 @@
 import turtle
-import math
+
 
 def get_color_choice():
     """
@@ -8,12 +8,13 @@ def get_color_choice():
     """
     print('Доступные цвета заливки:')
     print('красный', 'желтый', 'синий', 'зелёный', 'черный', 'розовый', sep='\n')
-    colors = ['красный', 'желтый', 'синий', 'зелёный', 'черный', 'розовый']
+    colors = {'красный': 'firebrick', 'желтый': 'gold', 'синий': 'dodger blue', 'зелёный': 'lime green',
+              'серый': 'dim gray', 'розовый': 'hot pink'}
     flag = False
     while not flag:
         color = input('Пожалуйста, введите цвет: ').lower()
-        if color in colors:
-            return color
+        if color in colors.keys():
+            return colors[color]
         if not flag:
             print(color, 'не является верным значением.')
 
@@ -50,7 +51,7 @@ def draw_hexagon(x, y, side_len, color):
     """
     turtle.pu()
     turtle.goto(x, y)
-    turtle.speed(1)
+    turtle.speed(40)
     turtle.color('black', color)
     turtle.pensize(1)
     turtle.begin_fill()
@@ -72,7 +73,8 @@ def main():
     len_hex = (diameter / 2) / (3 ** 0.5 / 2)
     print(len_hex)
     for i in range(num_hex):
-        draw_hexagon(40 + i * diameter, 40, len_hex, 'red')
+        draw_hexagon(40 + i * diameter, 40, len_hex, color_1)
 
 
 main()
+turtle.done()
