@@ -9,3 +9,4 @@ def get_color_choice():
             return color
         if not flag:
             print(color, 'не является верным значением.')
+
