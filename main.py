@@ -1,4 +1,10 @@
+"""
+Group:
+Varfolomeeva Viktoria 65
+Sineokaya Anastasia
+"""
 import turtle
+import RU_LOCAL as RU
 
 
 def get_color_choice():
@@ -6,17 +12,17 @@ def get_color_choice():
     function for selecting hexagon fill color
     :return: hexagon fill color
     """
-    print('Доступные цвета заливки:')
-    print('красный', 'желтый', 'синий', 'зелёный', 'серый', 'розовый', sep='\n')
-    colors = {'красный': 'firebrick', 'желтый': 'gold', 'синий': 'dodger blue', 'зелёный': 'lime green',
-              'серый': 'dim gray', 'розовый': 'hot pink'}
+    print(RU.INTRODUCTION_1)
+    print(RU.COLOR_1, RU.COLOR_2, RU.COLOR_3, RU.COLOR_4, RU.COLOR_5, RU.COLOR_6, sep='\n')
+    colors = {RU.COLOR_1: 'firebrick', RU.COLOR_2: 'gold', RU.COLOR_3: 'dodger blue', RU.COLOR_4: 'lime green',
+              RU.COLOR_5: 'dim gray', RU.COLOR_6: 'hot pink'}
     flag = False
     while not flag:
-        color = input('Пожалуйста, введите цвет: ').lower()
+        color = input(RU.QUESTION_COLOR_1).lower()
         if color in colors.keys():
             return colors[color]
         if not flag:
-            print(color, 'не является верным значением.')
+            print(color, RU.QUESTION_COLOR_2)
 
 
 def get_num_hexagons():
@@ -25,7 +31,7 @@ def get_num_hexagons():
     :return: number of hexagons in the line
     """
     flag = 0
-    num_hexagons = input('Пожалуйста, введите количество шестиугольников, располагаемых в ряд: ')
+    num_hexagons = input(RU.HEXAGONS_1)
     while flag == 0:
         try:
             num_hexagons = int(num_hexagons)
@@ -33,11 +39,11 @@ def get_num_hexagons():
                 flag = 1
                 return num_hexagons
             else:
-                print('Оно должно быть от 4 до 20.')
-                num_hexagons = int(input('Пожалуйста, повторите попытку: '))
+                print(RU.HEXAGONS_2)
+                num_hexagons = int(input(RU.HEXAGONS_3))
         except ValueError:
-            print('Оно должно быть от 4 до 20.')
-            num_hexagons = input('Пожалуйста, повторите попытку: ')
+            print(RU.HEXAGONS_2)
+            num_hexagons = input(RU.HEXAGONS_3)
 
 
 def draw_hexagon(x, y, side_len, color):
