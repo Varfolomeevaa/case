@@ -7,7 +7,7 @@ def get_color_choice():
     :return: hexagon fill color
     """
     print('Доступные цвета заливки:')
-    print('красный', 'желтый', 'синий', 'зелёный', 'черный', 'розовый', sep='\n')
+    print('красный', 'желтый', 'синий', 'зелёный', 'серый', 'розовый', sep='\n')
     colors = {'красный': 'firebrick', 'желтый': 'gold', 'синий': 'dodger blue', 'зелёный': 'lime green',
               'серый': 'dim gray', 'розовый': 'hot pink'}
     flag = False
@@ -71,9 +71,14 @@ def main():
     num_hex = get_num_hexagons()
     diameter = 500 / num_hex
     len_hex = (diameter / 2) / (3 ** 0.5 / 2)
-    print(len_hex)
-    for i in range(num_hex):
-        draw_hexagon(40 + i * diameter, 40, len_hex, color_1)
+    shift = len_hex + 0.5 * len_hex
+    for j in range(num_hex):
+        for i in range(num_hex):
+            if j % 2 == 0:
+                draw_hexagon(-300 + i * diameter, 300 - shift * j, len_hex, color_1)
+            else:
+                draw_hexagon(-300 - diameter/2 + i * diameter, 300 - shift * j, len_hex, color_1)
+
 
 
 main()
