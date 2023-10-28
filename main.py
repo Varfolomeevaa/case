@@ -1,7 +1,7 @@
 """
 Group:
 Varfolomeeva Viktoria 65
-Sineokaya Anastasia
+Sineokaya Anastasia 60
 """
 import turtle
 import RU_LOCAL as RU
