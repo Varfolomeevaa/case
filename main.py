@@ -72,13 +72,15 @@ def main():
     diameter = 500 / num_hex
     len_hex = (diameter / 2) / (3 ** 0.5 / 2)
     shift = len_hex + 0.5 * len_hex
-    for j in range(num_hex):
+    for j in range(0, num_hex, 2):
         for i in range(num_hex):
-            if j % 2 == 0:
+            if i % 2 == 0:
                 draw_hexagon(-300 + i * diameter, 300 - shift * j, len_hex, color_1)
+                draw_hexagon(-300 - diameter/2 + i * diameter, 300 - shift * (j + 1), len_hex, color_1)
             else:
-                draw_hexagon(-300 - diameter/2 + i * diameter, 300 - shift * j, len_hex, color_1)
-
+                draw_hexagon(-300 + i * diameter, 300 - shift * j, len_hex, color_2)
+                draw_hexagon(-300 - diameter / 2 + i * diameter, 300 - shift * (j + 1), len_hex, color_2)
+        color_1, color_2 = color_2, color_1
 
 
 main()
